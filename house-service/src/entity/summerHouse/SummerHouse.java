@@ -2,8 +2,9 @@ package entity.summerHouse;
 
 import entity.House;
 import entity.HouseType;
+import entity.houseFactoryPattern.factory.HouseBluePrint;
 
-public class SummerHouse extends House {
+public class SummerHouse extends House implements HouseBluePrint {
 
     public SummerHouse(Long id, String name, int price, int squareMeter, int roomCount, int livingRoomCount) {
         this.id = id;
@@ -13,6 +14,14 @@ public class SummerHouse extends House {
         this.squareMeter = squareMeter;
         this.roomCount = roomCount;
         this.livingRoomCount = livingRoomCount;
+    }
+
+    /*
+     * HouseBluePrintImpl generated code
+     */
+    @Override
+    public void createHouse() {
+        System.out.println("Summer house created");
     }
 
     @Override
@@ -98,6 +107,8 @@ public class SummerHouse extends House {
         // TODO Auto-generated method stub
         super.setSquareMeter(squareMeter);
     }
+
+
 
     
 }

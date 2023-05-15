@@ -2,8 +2,9 @@ package entity.villa;
 
 import entity.House;
 import entity.HouseType;
+import entity.houseFactoryPattern.factory.HouseBluePrint;
 
-public class Villa extends House{
+public class Villa extends House implements HouseBluePrint{
     
     public Villa(Long id, String name, int price, int squareMeter, int roomCount, int livingRoomCount) {
         this.id = id;
@@ -13,6 +14,14 @@ public class Villa extends House{
         this.squareMeter = squareMeter;
         this.roomCount = roomCount;
         this.livingRoomCount = livingRoomCount;
+    }
+
+    /*
+     * HouseBluePrintImpl generated code
+     */
+    @Override
+    public void getHouse() {
+        System.out.println("Villa created");
     }
 
     @Override
@@ -98,6 +107,7 @@ public class Villa extends House{
         // TODO Auto-generated method stub
         super.setSquareMeter(squareMeter);
     }
+
 
     
 }

@@ -47,7 +47,7 @@ public class HouseService {
         for (T house : houses) {
             System.out.println("\nType : " + house.getHouseType() + "\tName : " + house.getName() + "\tPrice : "
                     + house.getPrice() + "\nDetails : \tRoom Count : " + house.getRoomCount() + "\tLiving room count : "
-                    + house.getLivingRoomCount() + "\tSquare meter : " + house.getSquareMeter());
+                    + house.getLivingRoomCount() + "\tSquare meter : " + house.getSquareMeter() + "\n\nID : " + house.getId());
         }
         System.out.println("------------------------------------------------------------------------------------");
     }
@@ -150,7 +150,7 @@ public class HouseService {
         for (House house : houses) {
             averageSquareMeter += house.getSquareMeter();
         }
-        averageSquareMeter = averageSquareMeter / (houses.size() + 1);
+        averageSquareMeter = averageSquareMeter / (houses.size());
 
         return averageSquareMeter;
     }

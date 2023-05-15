@@ -3,7 +3,10 @@ import java.util.List;
 import java.util.Scanner;
 
 import entity.House;
+import entity.HouseType;
 import entity.apartment.Apartment;
+import entity.houseFactoryPattern.HouseFactory;
+import entity.houseFactoryPattern.factory.HouseBluePrint;
 import entity.service.HouseService;
 import entity.summerHouse.SummerHouse;
 import entity.villa.Villa;
@@ -12,68 +15,37 @@ import ui.HouseMenuUi;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        //generates a ui for user
+        // generates a ui for user
         HouseMenuUi ui = new HouseMenuUi();
 
-        //gets all houses
+        //keyboard scanner for user inputs
+        Scanner kb = new Scanner(System.in);
+
+        // gets all houses from houseFactory
         List<House> houses = initializeHouses();
 
-        //house service instance gets all houses in list
+        // house service instance gets all houses in list
         HouseService houseService = new HouseService(houses);
-        Scanner kb = new Scanner(System.in);
-    
-        //initializes app and starts for user to use
+
+        // initializes app and starts for user to use
         ui.initializeApp(houseService, kb);
+
     }
 
-    
+    /*
+     * this method generates all type of houses for generation this method uses factory pattern implementation, adds all generated houses to the list and returns as an list
+     */
     private static List<House> initializeHouses() {
         List<House> houses = new ArrayList<>();
+        HouseFactory houseFactory = new HouseFactory();
 
-        houses.addAll(apartmentGenerator());
-        houses.addAll(villaGenertaor());
-        houses.addAll(summerHouseGenerator());
+        for (int i = 0; i < 3; i++) {
+            houses.add((Apartment) houseFactory.createApartment());
+            houses.add((Villa) houseFactory.createVilla());
+            houses.add((SummerHouse) houseFactory.createSummerHouse());
+        }
+
         return houses;
     }
 
-    private static List<Villa> villaGenertaor() {
-        List<Villa> villas = new ArrayList<Villa>();
-
-        Villa villa1 = new Villa((long) 100000000, "Villa1", 1000000, 300, 5, 2);
-        Villa villa2 = new Villa((long) 100000001, "Villa2", 3000000, 700, 7, 4);
-        Villa villa3 = new Villa((long) 100000002, "Villa3", 5000000, 1000, 10, 6);
-
-        villas.add(villa1);
-        villas.add(villa2);
-        villas.add(villa3);
-
-        return villas;
-    }
-
-    private static List<SummerHouse> summerHouseGenerator() {
-        List<SummerHouse> summerHouses = new ArrayList<SummerHouse>();
-
-        SummerHouse summerHouse1 = new SummerHouse((long) 200000000, "SummerHouse1", 10000, 250, 3, 1);
-        SummerHouse summerHouse2 = new SummerHouse((long) 200000001, "SummerHouse2", 30000, 450, 6, 3);
-        SummerHouse summerHouse3 = new SummerHouse((long) 200000002, "SummerHouse3", 50000, 650, 9, 5);
-
-        summerHouses.add(summerHouse1);
-        summerHouses.add(summerHouse2);
-        summerHouses.add(summerHouse3);
-
-        return summerHouses;
-    }
-
-    private static List<Apartment> apartmentGenerator() {
-        List<Apartment> apartments = new ArrayList<Apartment>();
-
-        Apartment apartment1 = new Apartment((long) 300000000, "Apartment1", 1000, 150, 3, 1);
-        Apartment apartment2 = new Apartment((long) 300000001, "Apartment2", 3000, 350, 5, 2);
-        Apartment apartment3 = new Apartment((long) 300000002, "Apartment3", 5000, 500, 7, 3);
-
-        apartments.add(apartment1);
-        apartments.add(apartment2);
-        apartments.add(apartment3);
-        return apartments;
-    }
 }
