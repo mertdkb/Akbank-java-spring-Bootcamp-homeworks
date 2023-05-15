@@ -7,65 +7,26 @@ import entity.apartment.Apartment;
 import entity.service.HouseService;
 import entity.summerHouse.SummerHouse;
 import entity.villa.Villa;
+import ui.HouseMenuUi;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
+        //generates a ui for user
+        HouseMenuUi ui = new HouseMenuUi();
+
+        //gets all houses
         List<House> houses = initializeHouses();
+
+        //house service instance gets all houses in list
         HouseService houseService = new HouseService(houses);
         Scanner kb = new Scanner(System.in);
-
-        initializeApp(houseService, kb);
-
+    
+        //initializes app and starts for user to use
+        ui.initializeApp(houseService, kb);
     }
 
-    private static void initializeApp(HouseService houseService, Scanner kb) {
-        System.out.println("------------------------------------------------------------------------------------");
-        System.out.println("1) List all type of houses");
-        System.out.println("2) List Apartments");
-        System.out.println("3) List Villas");
-        System.out.println("4) List Summer Houses");
-        System.out.println("5) Filter All houses by living room count and room count");
-
-        int userMenuInput = Integer.parseInt(kb.nextLine());
-
-        while (true) {
-
-            switch (userMenuInput) {
-                case 1:
-                    houseService.printAllHouses();
-                    break;
-                case 2:
-                    houseService.printAllApartments();
-                    break;
-                case 3:
-                    houseService.printAllVillas();
-                    break;
-                case 4:
-                    houseService.printAllSummerHouses();
-                    break;
-                case 5:
-                    filterMenuView(houseService, kb);
-                    break;
-                default:
-                    System.out.println("Invalid input!");
-                    break;
-            }
-            initializeApp(houseService, kb);
-        }
-
-    }
-
-    private static void filterMenuView(HouseService houseService, Scanner kb) {
-        System.out.print("Please enter living room count : ");
-        int livingRoomUserInput = Integer.parseInt(kb.nextLine());
-
-        System.out.print("Please enter room count : ");
-        int roomUserInput = Integer.parseInt(kb.nextLine());
-
-        houseService.printFilteredResults(houseService.filterAllTypeOfHouseByRoomCount(livingRoomUserInput, roomUserInput));
-    }
-
+    
     private static List<House> initializeHouses() {
         List<House> houses = new ArrayList<>();
 
