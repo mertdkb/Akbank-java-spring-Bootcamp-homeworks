@@ -31,7 +31,7 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 ## Methods
 ---
 
- ## `Note : ` When service instance created it fills list by house type and below methods get houses from those lists.
+ ## `Note : ` When service instance created, it fills lists by house type and below methods get houses from those lists.
 
 
 ```java
@@ -52,7 +52,7 @@ public class HouseService {
     }
 
     /*
-     * This method gets list of house and fills the list related to type of apartment
+     * This method gets list of house and fills the list related to type of house
      */
     private <T extends House>void fillListsByHouseType(List<T> houses){
         for (T house : houses) {
