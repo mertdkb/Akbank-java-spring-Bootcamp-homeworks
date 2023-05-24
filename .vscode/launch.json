@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "WsApplication",
+            "request": "launch",
+            "mainClass": "com.dikbiyik.ws.WsApplication"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "App",
