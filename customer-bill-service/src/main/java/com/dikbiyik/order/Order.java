@@ -1,5 +1,6 @@
 package com.dikbiyik.order;
 
+import java.time.Month;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Order {
@@ -13,17 +14,21 @@ public class Order {
 
     private String description;
 
-    private String month;
+    private Month month;
 
     private int orderAmount;
 
-    public Order(String customerId, String companyId, String description, String month, int orderAmount) {
+    private Double price;
+
+
+    public Order(String customerId, String companyId, String description, Month month, int orderAmount, Double price) {
         this.id = IDGENERATOR.incrementAndGet();
         this.customerId = customerId;
         this.companyId = companyId;
         this.description = description;
         this.month = month;
         this.orderAmount = orderAmount;
+        this.price = price;
     }
 
     public static AtomicInteger getIdgenerator() {
@@ -58,11 +63,11 @@ public class Order {
         this.description = description;
     }
 
-    public String getMonth() {
+    public Month getMonth() {
         return month;
     }
 
-    public void setMonth(String month) {
+    public void setMonth(Month month) {
         this.month = month;
     }
 
@@ -74,5 +79,12 @@ public class Order {
         this.orderAmount = orderAmount;
     }
     
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
     
 }

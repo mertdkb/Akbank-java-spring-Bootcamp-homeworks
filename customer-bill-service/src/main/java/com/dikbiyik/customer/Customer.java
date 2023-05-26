@@ -1,5 +1,6 @@
 package com.dikbiyik.customer;
 
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -17,13 +18,13 @@ public class Customer {
 
     private int age;
 
-    private String registerDate;
+    private Month registerDate;
 
     private List<Order> orderList = new ArrayList<>();
 
     //constructors
 
-    public Customer(String firstName, String lastName, int age, String registerDate, List<Order> orderList) {
+    public Customer(String firstName, String lastName, int age, Month registerDate, List<Order> orderList) {
         this.id = IDGENERATOR.incrementAndGet();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -32,7 +33,7 @@ public class Customer {
         this.orderList = orderList;
     }
 
-    public Customer(String firstName, String lastName, int age, String registerDate) {
+    public Customer(String firstName, String lastName, int age, Month registerDate) {
         this.id = IDGENERATOR.incrementAndGet();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -74,11 +75,11 @@ public class Customer {
         this.age = age;
     }
 
-    public String getRegisterDate() {
+    public Month getRegisterDate() {
         return registerDate;
     }
 
-    public void setRegisterDate(String registerDate) {
+    public void setRegisterDate(Month registerDate) {
         this.registerDate = registerDate;
     }
 

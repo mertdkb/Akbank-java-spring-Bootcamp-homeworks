@@ -1,6 +1,5 @@
 package com.dikbiyik.company;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +19,11 @@ public class Company {
 
     private String description;
 
-    private Map<Customer, List<Order>> orderByCutomerMap = new HashMap<>();
+    private Map<Customer, List<Order>> orderByCustomerMap = new HashMap<>();
 
     //Constructor
-    
+
+
     public Company(String companyName, String companyType, String description) {
         this.id = IDGENERATOR.incrementAndGet();
         this.companyName = companyName;
@@ -64,14 +64,12 @@ public class Company {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Map<Customer, List<Order>> getOrderByCutomerMap() {
-        return orderByCutomerMap;
+        
+    public Map<Customer, List<Order>> getOrderByCustomerMap() {
+        return orderByCustomerMap;
     }
 
-    public void setOrderByCutomerMap(Map<Customer, List<Order>> orderByCutomerMap) {
-        this.orderByCutomerMap = orderByCutomerMap;
+    public void setOrderByCustomerMap(Map<Customer, List<Order>> orderByCustomerMap) {
+        this.orderByCustomerMap = orderByCustomerMap;
     }
-
-    
 }
