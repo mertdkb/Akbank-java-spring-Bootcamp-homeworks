@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.dikbiyik.App",
+            "projectName": "customer-bill-service"
+        },
+        {
+            "type": "java",
             "name": "WsApplication",
             "request": "launch",
             "mainClass": "com.dikbiyik.ws.WsApplication"
