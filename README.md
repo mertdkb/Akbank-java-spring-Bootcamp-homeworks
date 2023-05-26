@@ -66,6 +66,19 @@ This project, is an API that proceeds **Users, Products and Comments** (`GET, PO
 
 ****
 
+## Customer Biil Service
+
+This project is a Maven project that create `Customer` and `Order` and provides functionality to print, filter based price of bills and list of customers.
+
+---
+### Project features
+ - Customers, orders and companies are created in constructer
+ - The project allows the creation of new order.
+ - All types of orders, customers and companies can be printed in display.
+ - The bills can be listed and filtered based on price.
+ - The project is implemented using the Java programming language and designed as a simple console application.
+****
+
 If you have any questions or feedback regarding the project, please feel free to reach out to me. You can contact me through the following:
 
 `Email:` dikbykmert@gmail.com
